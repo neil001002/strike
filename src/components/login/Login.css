@@ -1,6 +1,55 @@
-/* .Login {
+.login-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.connect-wallet-container {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 550px;
+  z-index: 1;
+}
+
+.cta-button {
+  height: 45px;
+  border: 0;
+  width: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
   background-color: green;
-  margin: 10rem;
-  justify-content: center;
-  align-items: center;
+}
+
+/* .connect-wallet-button {
+  background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
 } */
+
+.img-container {
+  /* position: absolute; */
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
+
+.bg-logo {
+  position: absolute;
+  opacity: 0.8;
+  top: 18%;
+}
+
+.subtitle {
+  position: absolute;
+  font-size: 25px;
+  color: green;
+  /* top: 10%; */
+  left: 10%;
+  right: 10%;
+  bottom: 20%;
+}
