@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Login from "./components/login/Login";
 import Profiles from "./components/profile/Profiles";
+import Feeds from "./components/feeds/Feeds";
 import { LoginContext } from "./context/LoginContext";
 import { useContext } from "react";
 
@@ -14,7 +15,7 @@ function App() {
         <div className="header-container">
           <header>
             <div className="left">
-              <p className="title">Strike</p>
+              <p className="title">⚡Strike</p>
             </div>
             {/* Display a logo and wallet connection status */}
             <div className="right">
@@ -30,7 +31,8 @@ function App() {
           </header>
         </div>
 
-        {!currentAccount ? <Login /> : <Profiles />}
+        {!currentAccount && <Login />}
+        {currentAccount && <Feeds />}
 
         {/* footer */}
         <div className="footer-container">
