@@ -1,13 +1,19 @@
-import logo from "./logo.svg";
+// import logo from "./logo.svg";
 import "./App.css";
 import Login from "./components/login/Login";
 import Profiles from "./components/profile/Profiles";
 import Feeds from "./components/feeds/Feeds";
 import { LoginContext } from "./context/LoginContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import logo from "./assets/lens-favicon.png";
+import smallLogo from "./assets/lens-favicon-2.png";
 
 function App() {
   const { currentAccount } = useContext(LoginContext);
+
+  const profileButton = () => {
+    console.log("hello profile button");
+  };
 
   return (
     <div className="App">
@@ -18,15 +24,18 @@ function App() {
               <p className="title">⚡Strike</p>
             </div>
             {/* Display a logo and wallet connection status */}
-            <div className="right">
-              {currentAccount ? (
-                <p>
-                  {" "}
-                  {currentAccount.slice(0, 6)}...{currentAccount.slice(-4)}{" "}
-                </p>
-              ) : (
-                <p>Not connected</p>
-              )}
+            <div className="right-buttons">
+              <div className="right">
+                {currentAccount ? (
+                  <p>
+                    {" "}
+                    {currentAccount.slice(0, 6)}...{currentAccount.slice(-4)}{" "}
+                  </p>
+                ) : (
+                  <p>Not connected</p>
+                )}
+              </div>
+              {currentAccount && <img onClick={profileButton} className="img" src={logo} />}
             </div>
           </header>
         </div>

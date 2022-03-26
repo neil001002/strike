@@ -12,7 +12,7 @@ p {
 
 .container {
   height: 100%;
-  /* background-color: #181818; */
+  background-color: greenyellow;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -41,6 +41,16 @@ header {
   color: green;
 }
 
+.right-buttons {
+  display: flex;
+  /* padding: 12px 20px; */
+  height: 99%;
+  /* margin-right: 10px;
+  margin-top: 10px; */
+  /* border: 1; */
+  /* align-items: center; */
+}
+
 .right {
   display: flex;
   background: green;
@@ -50,6 +60,26 @@ header {
   height: 99%;
   margin-right: 10px;
   margin-top: 10px;
+}
+
+/* .profile {
+  display: flex;
+  background: green;
+  color: greenyellow;
+  border-radius: 16px;
+  border: 0;
+  padding: 12px 20px;
+  height: 99%;
+  margin-right: 10px;
+  margin-top: 10px;
+} */
+
+.img {
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  margin-top: 5px;
 }
 
 .footer-container {
