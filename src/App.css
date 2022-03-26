@@ -51,6 +51,17 @@ header {
   /* align-items: center; */
 }
 
+.rightFeedsButton {
+  color: green;
+  background: #e5ffbe;
+  border-radius: 16px;
+  padding: 12px 20px;
+  height: 99%;
+  margin-right: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
 .right {
   display: flex;
   background: green;

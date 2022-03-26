@@ -10,10 +10,7 @@ import smallLogo from "./assets/lens-favicon-2.png";
 
 function App() {
   const { currentAccount } = useContext(LoginContext);
-
-  const profileButton = () => {
-    console.log("hello profile button");
-  };
+  const [activeComponent, setActiveComponent] = useState("feedsComponent");
 
   return (
     <div className="App">
@@ -25,6 +22,9 @@ function App() {
             </div>
             {/* Display a logo and wallet connection status */}
             <div className="right-buttons">
+              <div className="rightFeedsButton" onClick={() => setActiveComponent("feedsComponent")}>
+                Explore
+              </div>
               <div className="right">
                 {currentAccount ? (
                   <p>
@@ -35,13 +35,14 @@ function App() {
                   <p>Not connected</p>
                 )}
               </div>
-              {currentAccount && <img onClick={profileButton} className="img" src={logo} />}
+              {currentAccount && <img onClick={() => setActiveComponent("profileComponent")} className="img" src={logo} />}
             </div>
           </header>
         </div>
 
         {!currentAccount && <Login />}
-        {currentAccount && <Feeds />}
+        {currentAccount && activeComponent === "feedsComponent" && <Feeds />}
+        {activeComponent === "profileComponent" && <Profiles />}
 
         {/* footer */}
         <div className="footer-container">
