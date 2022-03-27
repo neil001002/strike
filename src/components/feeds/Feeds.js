@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { EXPLORE_PUBLICATIONS } from "../../graphQL/queries/explore-publications";
 
 function Feeds() {
-  const { error, loading, data } = useQuery(EXPLORE_PUBLICATIONS, { variables: { request: { sortCriteria: "TOP_COMMENTED", limit: 10 } } });
+  const { error, loading, data } = useQuery(EXPLORE_PUBLICATIONS, { variables: { request: { sortCriteria: "TOP_COMMENTED", limit: 50 } } });
   console.log({ error, loading, data });
   if (loading) {
     return <div>spinner...</div>;
@@ -20,14 +20,18 @@ function Feeds() {
       {data.explorePublications.items.map((publication) => {
         return (
           <div className="feed-cards">
-            <h1>
+            <h2>
               {publication.profile.handle} {publication.profile.id}
-            </h1>
-            <h2>{publication.metadata.content}</h2>
-            <h3>
-              collects {publication.stats.totalAmountOfCollects}, comments {publication.stats.totalAmountOfComments}, mirrors{" "}
-              {publication.stats.totalAmountOfMirrors}
-            </h3>
+            </h2>
+            <div className="content-container">
+              <h3>{publication.metadata.content}</h3>
+            </div>
+            <div className="bottom-buttons">
+              <h4>
+                collects {publication.stats.totalAmountOfCollects}, comments {publication.stats.totalAmountOfComments}, mirrors{" "}
+                {publication.stats.totalAmountOfMirrors}
+              </h4>
+            </div>
           </div>
         );
       })}

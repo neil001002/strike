@@ -22,14 +22,17 @@ function Profiles() {
       {data.profiles.items.map((profile) => {
         return (
           <div className="profile-card">
-            <h1>{profile.name}</h1>
-            <h2>{profile.id}</h2>
-            <h3>{profile.bio}</h3>
-            <h3>{profile.location}</h3>
-            <h3>{profile.twitterUrl}</h3>
-            <h3>{profile.ownedBy}</h3>
-            <h2>{profile.stats.totalFollowers} Followers</h2>
-            <h2>{profile.stats.totalFollowing} Following</h2>
+            <h2>{profile.name}</h2>
+            <h3>@{profile.handle}</h3>
+            <h3>{profile.id}</h3>
+            <h4>{profile.bio}</h4>
+            <h4>🗺️{profile.location}</h4>
+            <h4>{profile.twitterUrl}</h4>
+            <h4>{profile.ownedBy}</h4>
+            <div className="profile-stats">
+              <h3>{profile.stats.totalFollowers} Followers</h3>
+              <h3>{profile.stats.totalFollowing} Following</h3>
+            </div>
           </div>
         );
       })}
