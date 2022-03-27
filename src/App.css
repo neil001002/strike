@@ -62,6 +62,12 @@ header {
   cursor: pointer;
 }
 
+.polygon-logo {
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+}
+
 .right {
   display: flex;
   background: green;
@@ -91,18 +97,4 @@ header {
   width: 50px;
   margin-right: 10px;
   margin-top: 5px;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-right: 10px;
-  padding-left: 10px;
-  padding-bottom: 5px;
-}
-
-.footer-text {
-  color: green;
-  font-size: 15px;
 }

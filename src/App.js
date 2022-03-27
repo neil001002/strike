@@ -7,9 +7,13 @@ import { LoginContext } from "./context/LoginContext";
 import { useContext, useState } from "react";
 import logo from "./assets/lens-favicon.png";
 import smallLogo from "./assets/lens-favicon-2.png";
+import polygonVector from "./assets/polygon-vector-1.svg";
+import ethLogo from "./assets/eth-logo.png";
+import polygonLogo from "./assets/polygon-logo.png";
+import Footer from "./components/footer/Footer";
 
 function App() {
-  const { currentAccount } = useContext(LoginContext);
+  const { currentAccount, network } = useContext(LoginContext);
   const [activeComponent, setActiveComponent] = useState("feedsComponent");
 
   return (
@@ -22,10 +26,13 @@ function App() {
             </div>
             {/* Display a logo and wallet connection status */}
             <div className="right-buttons">
-              <div className="rightFeedsButton" onClick={() => setActiveComponent("feedsComponent")}>
-                Explore
-              </div>
+              {currentAccount && (
+                <div className="rightFeedsButton" onClick={() => setActiveComponent("feedsComponent")}>
+                  Explore
+                </div>
+              )}
               <div className="right">
+                <img className="polygon-logo" src={network.includes("Polygon") ? polygonVector : ethLogo} />
                 {currentAccount ? (
                   <p>
                     {" "}
@@ -45,10 +52,7 @@ function App() {
         {activeComponent === "profileComponent" && <Profiles />}
 
         {/* footer */}
-        <div className="footer-container">
-          <a className="footer-text">Lens Protocol</a>
-          <a className="footer-text">developed by sunil</a>
-        </div>
+        <Footer />
       </div>
     </div>
   );

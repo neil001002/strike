@@ -4,12 +4,14 @@ import { ethers } from "ethers";
 import { generateChallenge } from "../graphQL/queries/generate-challenge";
 import { authenticate } from "../graphQL/mutations/authenticate";
 import { refreshAuth } from "../graphQL/mutations/refresh-authenticate";
+import { Networks } from "../constants/Networks";
 
 export const LoginContext = React.createContext();
 const { ethereum } = window;
 
 export const LoginProvider = ({ children }) => {
   const [currentAccount, setCurrentAccount] = useState("");
+  const [network, setNetwork] = useState("");
 
   const useInterval = (callback, delay) => {
     const savedCallback = React.useRef();
@@ -44,6 +46,10 @@ export const LoginProvider = ({ children }) => {
       } else {
         console.log("No accounts found");
       }
+
+      // This is the new part, we check the user's network chain ID
+      const chainId = await ethereum.request({ method: "eth_chainId" });
+      setNetwork(Networks[chainId]);
     } catch (error) {
       console.log(error);
       throw new Error("No ethereum object.");
@@ -94,5 +100,5 @@ export const LoginProvider = ({ children }) => {
     checkIfWalletIsConnected();
   }, []);
 
-  return <LoginContext.Provider value={{ connectWallet, currentAccount }}>{children}</LoginContext.Provider>;
+  return <LoginContext.Provider value={{ connectWallet, currentAccount, network }}>{children}</LoginContext.Provider>;
 };
