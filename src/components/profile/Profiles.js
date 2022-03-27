@@ -1,3 +1,4 @@
+import "./Profiles.css";
 import React, { useContext } from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PROFILES } from "../../graphQL/queries/get-profile";
@@ -17,11 +18,10 @@ function Profiles() {
   }
 
   return (
-    <div>
-      <button>connected: {currentAccount}</button>
+    <div className="profiles-page">
       {data.profiles.items.map((profile) => {
         return (
-          <div>
+          <div className="profile-card">
             <h1>{profile.name}</h1>
             <h2>{profile.id}</h2>
             <h3>{profile.bio}</h3>

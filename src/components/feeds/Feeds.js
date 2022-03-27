@@ -1,9 +1,10 @@
+import "./Feeds.css";
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { EXPLORE_PUBLICATIONS } from "../../graphQL/queries/explore-publications";
 
 function Feeds() {
-  const { error, loading, data } = useQuery(EXPLORE_PUBLICATIONS, { variables: { request: { sortCriteria: "TOP_COMMENTED", limit: 1 } } });
+  const { error, loading, data } = useQuery(EXPLORE_PUBLICATIONS, { variables: { request: { sortCriteria: "TOP_COMMENTED", limit: 20 } } });
   console.log({ error, loading, data });
   if (loading) {
     return <div>spinner...</div>;
@@ -14,11 +15,11 @@ function Feeds() {
   }
 
   return (
-    <div>
+    <div className="feeds-page">
       Feeds
       {data.explorePublications.items.map((publication) => {
         return (
-          <div>
+          <div className="feed-cards">
             <h1>
               {publication.profile.handle} {publication.profile.id}
             </h1>

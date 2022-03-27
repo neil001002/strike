@@ -1,0 +1,10 @@
+.profiles-page {
+  background: greenyellow;
+}
+
+.profile-card {
+  background: #e5ffbe;
+  border-radius: 16px;
+  margin-right: 25%;
+  margin-left: 25%;
+}

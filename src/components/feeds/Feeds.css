@@ -1,0 +1,16 @@
+.feeds-page {
+  flex-direction: column;
+  justify-content: center;
+  background: greenyellow;
+}
+
+.feed-cards {
+  display: flex;
+  flex-direction: column;
+  background: #e5ffbe;
+  /* height: 99%; */
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-bottom: 5%;
+  border-radius: 16px;
+}
