@@ -20,6 +20,7 @@ function Feeds() {
       {data.explorePublications.items.map((publication) => {
         return (
           <div className="feed-cards">
+            {/* <h2>{publication.profile.name}</h2> */}
             <h2>
               {publication.profile.handle} {publication.profile.id}
             </h2>
