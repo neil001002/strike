@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import { EXPLORE_PUBLICATIONS } from "../../graphQL/queries/explore-publications";
 
 function Feeds() {
-  const { error, loading, data } = useQuery(EXPLORE_PUBLICATIONS, { variables: { request: { sortCriteria: "TOP_COMMENTED", limit: 50 } } });
+  const { error, loading, data } = useQuery(EXPLORE_PUBLICATIONS, { variables: { request: { sortCriteria: "TOP_COMMENTED", limit: 10 } } });
   console.log({ error, loading, data });
   if (loading) {
     return <div>spinner...</div>;
